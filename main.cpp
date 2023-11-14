@@ -1,31 +1,35 @@
+#include"operator.h"
 #include<iostream>
-#include"List.h"
+#include<fstream>
 using namespace std;
-
 int main() {
-	List list;
-	list.push(1);
-	list.push(9);
-	list.push(1);
-	list.push(9);
-	list.push(8);
-	list.push(1);
-	list.push(0);
-	list.push(5);
-	list.push(1);
-	list.push(0);
-	list.from_begin(4);
-	list.from_begin(1);
-	list.from_begin(5);
-	list.from_begin(4);
-	list.from_begin(1);
-	list.from_begin(1);
-	list.from_begin(7);
-	list.delete_point(list.find(7));
-	list.printlist();
-	list.delete_end();
-	list.delete_end();
-	list.delete_end();
-	list.printlist();
-	list.~List();
+	SOME Alpha(18, "alpha");
+	SOME Beta(21, "beta");
+	SOME zigma = Alpha + Beta;
+	cout << zigma << endl;
+	Beta = operator+(zigma, Alpha);
+	cout << Beta;
+	SOME lammda(0, "");
+	lammda += Alpha;
+	operator+=(lammda, Beta);
+	SOME Gamma(0, "");
+	Gamma = operator+=(Gamma, Beta);
+	cout << Gamma;
+	cout << lammda;
+	ofstream fout;
+	fout.open("text.txt");
+	if (fout.is_open()){
+		fout << lammda;
+	}
+	fout.close();
+	ifstream fin;
+	fin.open("text.txt");
+	//if (fin.is_open()) {
+	//	SOME Omega(17, "some");
+	//	fin >> Omega;
+	//	cout << Omega << endl;
+	//}
+
+
+
 }
